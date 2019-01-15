@@ -1,53 +1,18 @@
-# eslint-plugin-starts-with-ts-check
+# eslint-plugin-aquifer
 
-ensure that each javascript file starts with &#39;//@ts-check&#39;
+contains 3 rules:
 
-## Installation
+## starts-with-ts-check
+make sure each file starts w/ //@ts-check. the editor-based typechecking has made development a lot less painless but yes just using typescript would be ideal.
 
-You'll first need to install [ESLint](http://eslint.org):
+## visual-test-contains-assert
+make sure tests with visual regression bits ends with a certain line of code that allows the test to continue running even if a visual test fails. turns visual test asserts into "soft asserts". so the app's functionality will still be tested even if some pixels are off.
 
-```
-$ npm i eslint --save-dev
-```
-
-Next, install `eslint-plugin-starts-with-ts-check`:
-
-```
-$ npm install eslint-plugin-starts-with-ts-check --save-dev
-```
-
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-starts-with-ts-check` globally.
-
-## Usage
-
-Add `starts-with-ts-check` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
-
-```json
-{
-    "plugins": [
-        "starts-with-ts-check"
-    ]
-}
-```
+## uiContainer-child-constructor-ends-with-nameElements
+make sure page object constructors end with a bit of code that ensures all web elements have been named. this makes for readable html test report. elements have nice names instead of just cryptic selectors. this is part of a goal to prioritize selector stability over readability. and also to avoid using visible element text bits in case WS gets better foreign language support
 
 
-Then configure the rules you want to use under the rules section.
-
-```json
-{
-    "rules": {
-        "starts-with-ts-check/rule-name": 2
-    }
-}
-```
-
-## Supported Rules
-
-* Fill in provided rules here
-
-
-
-## Resources
+## Dev Resources
 
 https://eslint.org/docs/developer-guide/working-with-rules
 
